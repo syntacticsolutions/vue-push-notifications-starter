@@ -4,7 +4,7 @@ const serverKey = require('./firebase-private-key.json') // put the generated pr
 
 const fcm = new FCM(serverKey)
 
-exports.sendPushNotification = (channel, collapseKey, title, message) => {
+exports.sendPush = (req, res) => {
 
     const message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
         to: channel, 
