@@ -7,8 +7,8 @@ const fcm = new FCM(serverKey)
 exports.sendPush = (req, res) => {
 
     const message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-        to: channel, 
-        collapse_key: collapseKey,
+        to: req.token,
+        collapse_key: 'collapse-key',
         
         notification: {
             title: title, 
