@@ -1,16 +1,16 @@
 <script>
 import firebase from 'firebase'
-import { FB_CONFIG, VAPID_KEY, SERVER_URL } from '../fbConfig'
+let config = require('../fbConfig.json')
 
 
-firebase.initializeApp(fbConfig)
+firebase.initializeApp(config.FB_CONFIG)
 
 export default {
     methods: {
         sendTokenToServer (currentToken) {
             if (!this.tokenSent) {
                 this.$axios
-                .post(SERVER_URL, { token: currentToken })
+                .post(config.SERVER_URL, { token: currentToken })
                 .then((res) => {
                     console.log(res)
                     this.tokenSent = true
@@ -37,32 +37,32 @@ export default {
                 alert('An error occurred while retrieving token. ' + err)
                 this.tokenSent = false
             });
-        },
-        mounted () {
-            const fbConfig = FBConfig
-
-            window.sendTokenToServer = this.sendTokenToServer
-
-            if (firebase.messaging.isSupported()) {
-                window.messaging = firebase.messaging()
-                window.messaging.usePublicVapidKey(VAPID_KEY)
-
-                window.messaging.onTokenRefresh(() => {
-                    window.messaging.getToken().then((refreshedToken) => {
-                    this.tokenSent = false
-                    // Send Instance ID token to app server.
-                    window.sendTokenToServer(refreshedToken)
-                    }).catch(function(err) {
-                    alert('Unable to retrieve refreshed token ', err)
-                    });
-                });
-
-                window.messaging.onMessage(function(payload) {
-                    console.log('Message received. ', payload);
-                    // ...
-                });
-            }
         }
-    }    
+    },
+    mounted () {
+
+        window.sendTokenToServer = this.sendTokenToServer
+
+        if (firebase.messaging.isSupported()) {
+            window.messaging = firebase.messaging()
+            window.messaging.usePublicVapidKey(config.VAPID_KEY)
+
+            window.messaging.onTokenRefresh(() => {
+                window.messaging.getToken().then((refreshedToken) => {
+                this.tokenSent = false
+                // Send Instance ID token to app server.
+                window.sendTokenToServer(refreshedToken)
+                }).catch(function(err) {
+                alert('Unable to retrieve refreshed token ', err)
+                });
+            });
+
+            window.messaging.onMessage(function(payload) {
+                alert(payload)
+                console.log('Message received. ', payload);
+                // ...
+            });
+        }
+    }
 }
 </script>

@@ -1,0 +1,12 @@
+{
+    "FB_CONFIG": {
+        "apiKey": "AIzaSyD2gCifW9ac1hlFpcywTGJTxzOHbLRA_Yw",
+        "authDomain": "push-notifications-fef03.firebaseapp.com",
+        "databaseURL": "https://push-notifications-fef03.firebaseio.com",
+        "projectId": "push-notifications-fef03",
+        "storageBucket": "push-notifications-fef03.appspot.com",
+        "messagingSenderId": "230112976648"
+    },
+    "VAPID_KEY": "BEJDus6AkdKJ24XycGZN3kQozuPfRNzXssKLo-FVjKDp9dD8jLcns3ZE1vNEYBwWYUvsajzLVji8FKFq8x5s4c8",
+    "SERVER_URL": "https://us-central1-helpful-weft-224923.cloudfunctions.net/pushNotifier/api/fcm/sendPush"
+}

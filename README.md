@@ -1,6 +1,8 @@
 # vue-push-notifications-starter
 Starter for FCM push notifications on a VueJS Frontend
 
+See the <a href="https://push-notifications-fef03.firebaseapp.com/#/">DEMO!</a>
+
 ## Getting Started: Backend
 
 0. Clone the Repo
