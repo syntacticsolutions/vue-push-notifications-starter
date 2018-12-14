@@ -1,5 +1,6 @@
 <script>
 import firebase from 'firebase'
+import { FB_CONFIG, VAPID_KEY, SERVER_URL } from '../fbConfig'
 
 
 firebase.initializeApp(fbConfig)
@@ -9,7 +10,7 @@ export default {
         sendTokenToServer (currentToken) {
             if (!this.tokenSent) {
                 this.$axios
-                .post(this.$config.host + `/api/fcm/sendPush`, { token: currentToken })
+                .post(SERVER_URL, { token: currentToken })
                 .then((res) => {
                     console.log(res)
                     this.tokenSent = true
@@ -38,20 +39,13 @@ export default {
             });
         },
         mounted () {
-            const fbConfig = {
-                apiKey: "AIzaSyD2gCifW9ac1hlFpcywTGJTxzOHbLRA_Yw",
-                authDomain: "push-notifications-fef03.firebaseapp.com",
-                databaseURL: "https://push-notifications-fef03.firebaseio.com",
-                projectId: "push-notifications-fef03",
-                storageBucket: "push-notifications-fef03.appspot.com",
-                messagingSenderId: "230112976648"
-            }
+            const fbConfig = FBConfig
 
             window.sendTokenToServer = this.sendTokenToServer
 
             if (firebase.messaging.isSupported()) {
                 window.messaging = firebase.messaging()
-                window.messaging.usePublicVapidKey('BEJDus6AkdKJ24XycGZN3kQozuPfRNzXssKLo-FVjKDp9dD8jLcns3ZE1vNEYBwWYUvsajzLVji8FKFq8x5s4c8')
+                window.messaging.usePublicVapidKey(VAPID_KEY)
 
                 window.messaging.onTokenRefresh(() => {
                     window.messaging.getToken().then((refreshedToken) => {
