@@ -6,25 +6,11 @@
 </template>
 
 <script>
-
-// import { Button } from 'element-ui'
-import firebase from 'firebase'
-
-
-
-firebase.initializeApp(fbConfig)
+import sendPush from '../mixins/sendPush'
 
 export default {
   name: 'PushNotificationSubscriber',
-  // components: {
-  //   "el-button": Button
-  // },
-  props: {
-    
-  },
-  data: () => ({
-    messaging: undefined
-  }),
+  mixins: [sendPush],
   methods: {
     subscribe () {
       window.messaging
