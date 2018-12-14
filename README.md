@@ -15,7 +15,7 @@ Starter for FCM push notifications on a VueJS Frontend
 ```
 
 0. If you haven't already: create your firebase app in GCP and get your private key.
-0. First click here: [here](https://console.firebase.google.com/u/0)
+0. First click <a href="https://console.firebase.google.com/u/0" target="_blank">here</a>
 0. Then click on your project
 0. Go to settings in the navigation drawer and click "Project Settings"
 0. Click the "Service Accounts" Tab and then:
@@ -75,12 +75,12 @@ firebase config info.
 
 ## To get your app-specific keys
 
-0. Navigate to the [Firebase cloud messaging console](https://console.firebase.google.com/u/0/project/_/settings/cloudmessaging/)
+0. Navigate to the <a href="https://console.firebase.google.com/u/0/project/_/settings/cloudmessaging/" target="_blank">Firebase cloud messaging console</a>
 0. Select your project
 0. In the "Web Configuration" Section: click the "Generate Key Pair" button and copy the output into your `VAPID_KEY` variable in
 `/push-notification-frontend/src/fbConfig.vue`
 
-0. Navigate to the [Firebase console](https://console.firebase.google.com/u/0/)
+0. Navigate to the <a href="https://console.firebase.google.com/u/0/" target="_blank">Firebase console</a>
 0. Select your project
 0. At the home page click the "+Add app" button
 0. Choose web
