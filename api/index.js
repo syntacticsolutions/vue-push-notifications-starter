@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const crud = require('./crud')
 
-router.post('/sendPush', crud.sendPush)
+router.use('/fcm', require('./fcm'))
 
 module.exports = router
