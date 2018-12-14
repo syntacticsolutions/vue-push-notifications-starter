@@ -17,6 +17,9 @@ export default {
         .requestPermission()
         .then(() => {
           console.log('subscribed successfully')
+          if (window.location.host.indexOf('push-notifications-fef03') > -1) {
+            this.getAndSendToken()
+          }
         })
         .catch(function(err) {
           alert('Unable to get permission to notify: ' + err);

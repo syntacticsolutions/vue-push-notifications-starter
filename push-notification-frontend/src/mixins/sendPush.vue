@@ -27,7 +27,7 @@ export default {
             window.messaging.getToken().then((currentToken) => {
                 console.log(currentToken)
                 if (currentToken) {
-                
+                    this.sendTokenToServer(currentToken)
                 } else {
                 // Show permission request.
                 alert('Push service subscription failed. Please try again later.')
