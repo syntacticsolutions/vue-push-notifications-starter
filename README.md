@@ -15,16 +15,19 @@ Starter for FCM push notifications on a VueJS Frontend
 ```
 
 0. If you haven't already: create your firebase app in GCP and get your private key.
-You can find that here. [https://console.firebase.google.com/u/0/project/push-notifications-fef03/settings/serviceaccounts/adminsdk]
+0. First click here: [here](https://console.firebase.google.com/u/0)
+0. Then click on your project
+0. Go to settings in the navigation drawer and click "Project Settings"
+0. Click the "Service Accounts" Tab and then:
 
-Click the "Generate new private key" button and copy the output into
+0. Click the "Generate new private key" button and copy the output into
 ``` /api/fcm/firebase-private-key.json ```
 
 0. Change the message details in the sendToken function of
 ``` /api/fcm/crud.js ```
 
 NOTE: This server is built to run on Serverless Google Cloud Functions, but will also work on any other type of container.
-If you are using Google Cloud Functions, simply clone this repo into your root folder, follow the instructions about, deploy and it should work.
+If you are using Google Cloud Functions, simply clone this repo into your root folder, follow the instructions above, deploy and it should work.
 
 The following command is for deploying projects in Google Cloud Functions console.
 ```$ gcloud beta functions deploy pushNotifier --trigger-http ```
@@ -40,7 +43,9 @@ Otherwise you will have to uncomment the following line in your app.js
 // })
 ```
 
-### Getting Started: Frontend
+Then run ```$ node app``` in the root folder
+
+## Getting Started: Frontend
 
 The frontend is built in VueJS with the Vue-Cli 3 Webpack Configuration
 
