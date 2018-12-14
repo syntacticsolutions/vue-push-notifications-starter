@@ -9,7 +9,7 @@ export default {
         sendTokenToServer (currentToken) {
             if (!this.tokenSent) {
                 this.$axios
-                .post(this.$config.host + `/api/fcm/${bool ? 'subscribe' : 'sendPush'}`, { token: currentToken })
+                .post(this.$config.host + `/api/fcm/sendPush`, { token: currentToken })
                 .then((res) => {
                     console.log(res)
                     this.tokenSent = true
