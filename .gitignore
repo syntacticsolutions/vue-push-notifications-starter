@@ -1,4 +1,7 @@
 api/fcm/firebase-private-key.json
 push-notification-frontend/.firebase/
 push-notification-frontend/node_modules/
+push-notification-frontend/dist
+push-notification-frontend/.firebaserc
+push-notification-frontend/firebase.json
 node_modules

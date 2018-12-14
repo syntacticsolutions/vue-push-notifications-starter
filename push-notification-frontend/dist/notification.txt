@@ -1,7 +1,0 @@
-{
-    "to": ,
-    "notification": {
-        title: "Hello",
-        body: "World"
-    }
-}
