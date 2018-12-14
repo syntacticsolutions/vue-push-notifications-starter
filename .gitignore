@@ -1,3 +1,4 @@
-firebase-private-key.json
+api/firebase-private-key.json
 push-notification-frontend/.firebase/
-push-notification-frontend/node_modules
+push-notification-frontend/node_modules/
+node_modules

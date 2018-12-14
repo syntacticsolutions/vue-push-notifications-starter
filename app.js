@@ -1,26 +1,20 @@
-const FCM = require('fcm-node')
-    
-const serverKey = require('./firebase-private-key.json') // put the generated private key path here    
+var express = require('express');
+var cors = require("cors");
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-const fcm = new FCM(serverKey)
+// This creates the Express app which is configured below.  
+var app = express();
 
-exports.sendPush = (req, res) => {
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(cors());
+app.use("/api", require('./api'));
 
-    const message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-        to: req.token,
-        collapse_key: 'collapse-key',
-        
-        notification: {
-            title: title, 
-            body: message
-        }
-    }
-    
-    fcm.send(message, function(err, response){
-        if (err) {
-            console.log("Something has gone wrong!")
-        } else {
-            console.log("Successfully sent with response: ", response)
-        }
-    })
-}
+app.get('/', (req, res) => res.status(200).send('API WORKING'))
+
+// This comes into play when we deploy the application to 
+// Cloud Functions.
+module.exports = app;
