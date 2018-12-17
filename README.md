@@ -17,7 +17,7 @@ See the <a href="https://push-notifications-fef03.firebaseapp.com/#/">DEMO!</a>
 ```
 
 0. If you haven't already: create your firebase app in GCP and get your private key.
-0. First click here: [here](https://console.firebase.google.com/u/0)
+0. First click [here](https://console.firebase.google.com/u/0)
 0. Then click on your project
 0. Go to settings in the navigation drawer and click "Project Settings"
 0. Click the "Service Accounts" Tab and then:
