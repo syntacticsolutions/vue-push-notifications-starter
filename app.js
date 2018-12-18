@@ -20,8 +20,8 @@ app.get('/', (req, res) => res.status(200).send('API WORKING'))
 
 module.exports = app;
 
-let port = 8081
+// let port = 8081
 
-app.listen(port, () => {
-    console.log(`Express server running on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Express server running on port ${port}`)
+// })
